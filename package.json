@@ -1,0 +1,54 @@
+{
+  "name": "vscode-duplicate-file-copy",
+  "displayName": "Duplicate File/Folder (-副本)",
+  "description": "右键文件或文件夹，一键生成带“-副本”后缀的备份",
+  "version": "0.0.1",
+  "publisher": "ecylkk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecylkk/vscode-duplicate-file-copy"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "duplicate-file-copy.makeCopy",
+        "title": "创建副本 (-副本)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "duplicate-file-copy.makeCopy",
+          "group": "2_workspace",
+          "when": "explorerResourceIsFolder || !explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
