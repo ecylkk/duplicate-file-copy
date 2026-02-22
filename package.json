@@ -2,7 +2,7 @@
   "name": "vscode-duplicate-file-copy",
   "displayName": "Duplicate File/Folder (-副本)",
   "description": "右键文件或文件夹，一键生成带“-副本”后缀的备份",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "publisher": "ecylkk",
   "repository": {
     "type": "git",
@@ -21,12 +21,21 @@
       {
         "command": "duplicate-file-copy.makeCopy",
         "title": "创建副本 (-副本)"
+      },
+      {
+        "command": "duplicate-file-copy.openGitBash",
+        "title": "在 Git Bash 中打开"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "duplicate-file-copy.makeCopy",
+          "group": "2_workspace",
+          "when": "explorerResourceIsFolder || !explorerResourceIsFolder"
+        },
+        {
+          "command": "duplicate-file-copy.openGitBash",
           "group": "2_workspace",
           "when": "explorerResourceIsFolder || !explorerResourceIsFolder"
         }
